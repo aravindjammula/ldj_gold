@@ -1,11 +1,13 @@
+// NOTE: We added '/react' to the start of every image path so it works on GitHub Pages.
+
 const products = [
-  // --- GOLD (Calculated at approx ₹13,500/g) ---
+  // --- GOLD ---
   {
     id: 1,
     name: "Regal Blossom Choker",
-    price: "₹4,38,750", // Approx 32.5g
+    price: "₹4,38,750",
     category: "Gold",
-    image: "/images/Regal Blossom Choker.jpg", 
+    image: "/react/images/gold-choker.jpg", // ✅ Fixed: lowercase, no spaces, added /react
     badge: "Bestseller",
     description: "22K gold choker featuring intricate floral motifs and antique finish. Weight: 32.5g",
     isNew: false
@@ -13,9 +15,9 @@ const products = [
   {
     id: 2,
     name: "Heritage Gold Bajuband",
-    price: "₹3,37,500", // Approx 25g
+    price: "₹3,37,500",
     category: "Gold",
-    image: "/images/Heritage Gold Bajuband.jpg", 
+    image: "/react/images/gold-bajuband.jpg", 
     badge: "Traditional",
     description: "Handcrafted armlet with temple jewelry artistry. Weight: 25g",
     isNew: true
@@ -23,9 +25,9 @@ const products = [
   {
     id: 3,
     name: "Lord Krishna Motif Pendant",
-    price: "₹1,62,000", // Approx 12g
+    price: "₹1,62,000",
     category: "Gold",
-    image: "/images/Lord Krishna Motif Pendant.jpg", 
+    image: "/react/images/krishna-pendant.jpg", 
     badge: "Divine",
     description: "Exquisite pendant capturing the divine grace of Lord Krishna. Weight: 12g",
     isNew: true
@@ -33,21 +35,21 @@ const products = [
   {
     id: 4,
     name: "Lord Ganesh Pendant",
-    price: "₹1,08,000", // Exactly 8g * 13,500
+    price: "₹1,08,000",
     category: "Gold",
-    image: "/images/lord_ganesh.jpg",
+    image: "/react/images/ganesh-pendant.jpg",
     badge: "Blessings",
     description: "A symbol of new beginnings crafted in pure 22K gold. Weight: 8g",
     isNew: false
   },
 
-  // --- DIAMOND (Updated to reflect luxury base) ---
+  // --- DIAMOND ---
   {
     id: 5,
     name: "Diamond Solitaire Ring",
     price: "₹1,85,000",
     category: "Diamond",
-    image: "/images/Diamond Solitaire Ring.jpg", 
+    image: "/react/images/diamond-ring.jpg", 
     badge: "IGI Certified",
     description: "Classic 0.75ct solitaire setting in 18K white gold. VVS1 Clarity.",
     isNew: true
@@ -57,7 +59,7 @@ const products = [
     name: "Riviera Tennis Necklace",
     price: "₹5,50,000",
     category: "Diamond",
-    image: "/images/Riviera Tennis Necklace.jpg", 
+    image: "/react/images/diamond-necklace.jpg", 
     badge: "Premium",
     description: "A cascading line of brilliant-cut diamonds (5.2ct total weight) for ultimate luxury.",
     isNew: true
@@ -69,19 +71,19 @@ const products = [
     name: "Halo Engagement Ring",
     price: "₹2,25,000",
     category: "Engagement",
-    image: "/images/Halo Engagement Ring.jpg", 
+    image: "/react/images/halo-ring.jpg", 
     badge: "Forever",
     description: "A stunning central diamond surrounded by a halo of brilliance.",
     isNew: true
   },
 
-  // --- VINTAGE / ANTIQUE (Gold weight + Craftsmanship value) ---
+  // --- VINTAGE / ANTIQUE ---
   {
     id: 8,
     name: "Antique Temple Earrings",
-    price: "₹2,95,000", // Approx 22g
+    price: "₹2,95,000",
     category: "Vintage",
-    image: "/images/Antique Temple Earrings.jpg", 
+    image: "/react/images/temple-earrings.jpg", 
     badge: "Handmade",
     description: "Traditional Jhumkas with intricate Nakshi work and ruby embellishments. Weight: 22g",
     isNew: true
@@ -89,9 +91,9 @@ const products = [
   {
     id: 9,
     name: "Vintage Art Brooch",
-    price: "₹1,48,500", // Approx 11g
+    price: "₹1,48,500",
     category: "Vintage",
-    image: "/images/Vintage Art Brooch.jpg", 
+    image: "/react/images/vintage-brooch.jpg", 
     badge: "Classic",
     description: "A timeless accessory to elevate any traditional attire. Weight: 11g",
     isNew: false
@@ -101,7 +103,7 @@ const products = [
     name: "Antique Natural Pearl Set",
     price: "₹4,50,000",
     category: "Vintage",
-    image: "/images/ANTIQUE_NATURAL_PEARL.jpg", 
+    image: "/react/images/pearl-set.jpg", 
     badge: "Rare",
     description: "Certified natural Basra pearls set in antique gold.",
     isNew: true
@@ -111,9 +113,9 @@ const products = [
   {
     id: 11,
     name: "Opulent Bridal Set",
-    price: "₹16,50,000", // Approx 120g + labor
+    price: "₹16,50,000",
     category: "Bridal",
-    image: "/images/Opulent Bridal Set.jpg", 
+    image: "/react/images/bridal-set.jpg", 
     badge: "Exclusive",
     description: "Complete heavy bridal set including necklace, earrings, and maang tikka. Weight: 120g",
     isNew: true
@@ -125,7 +127,7 @@ const products = [
     name: "Natural Pearl Drop Earrings",
     price: "₹85,000",
     category: "Vintage",
-    image: "/images/Natural Pearl Drop Earrings.jpg", 
+    image: "/react/images/pearl-earrings.jpg", 
     badge: "Elegant",
     description: "Simple yet sophisticated natural pearl drops in 18K Gold.",
     isNew: false
