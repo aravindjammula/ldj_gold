@@ -39,50 +39,58 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 2. CATEGORY HIGHLIGHTS - Visual Navigation */}
+      {/* 2. CATEGORY HIGHLIGHTS */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <h2 className="text-3xl font-serif text-center text-ldj-dark mb-12">Shop By Category</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Gold Card - Updated to Local Image */}
-          <Link to="/gold" className="group relative h-96 overflow-hidden cursor-pointer shadow-lg">
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10"></div>
-            <img 
-              src="/images/Heritage Gold Bajuband.jpg" 
-              alt="Gold" 
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-            />
-            <div className="absolute bottom-8 left-0 right-0 text-center z-20">
-              <h3 className="text-2xl font-serif text-white mb-2">Gold Jewellery</h3>
-              <span className="text-white text-xs uppercase tracking-widest border-b border-transparent group-hover:border-ldj-gold transition-colors">View Collection</span>
+
+          {/* Gold Category - Using 'gold-choker.jpg' */}
+          <Link to="/collections?category=Gold" className="group relative h-[400px] overflow-hidden cursor-pointer">
+            <div className="absolute inset-0 bg-gray-200">
+              <img
+                src="/react/images/gold-choker.jpg"  // ✅ CHANGED to an existing file
+                alt="Gold"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute bottom-8 left-0 right-0 text-center text-white">
+              <h3 className="text-2xl font-serif mb-2">Gold Jewellery</h3>
+              <span className="text-xs uppercase tracking-widest border-b border-white pb-1">View Collection</span>
             </div>
           </Link>
 
-          {/* Diamond Card - Updated to Local Image */}
-          <Link to="/diamonds" className="group relative h-96 overflow-hidden cursor-pointer mt-0 md:-mt-8 shadow-lg">
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10"></div>
-            <img 
-              src="/images/Diamond Solitaire Ring.jpg" 
-              alt="Diamond" 
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-            />
-            <div className="absolute bottom-8 left-0 right-0 text-center z-20">
-              <h3 className="text-2xl font-serif text-white mb-2">Diamond Solitaires</h3>
-              <span className="text-white text-xs uppercase tracking-widest border-b border-transparent group-hover:border-ldj-gold transition-colors">View Collection</span>
+          {/* Diamond Category - Using 'diamond-ring.jpg' */}
+          <Link to="/collections?category=Diamond" className="group relative h-[400px] overflow-hidden cursor-pointer">
+            <div className="absolute inset-0 bg-gray-200">
+              <img
+                src="/react/images/diamond-ring.jpg" // ✅ CHANGED to an existing file
+                alt="Diamond"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            {/* ... other code stays the same ... */}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute bottom-8 left-0 right-0 text-center text-white">
+              <h3 className="text-2xl font-serif mb-2">Diamond Solitaires</h3>
+              <span className="text-xs uppercase tracking-widest border-b border-white pb-1">View Collection</span>
             </div>
           </Link>
 
-          {/* Bridal Card - FIXED (Was Broken) */}
-          <Link to="/bridal" className="group relative h-96 overflow-hidden cursor-pointer shadow-lg">
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10"></div>
-            <img 
-              src="/images/Opulent Bridal Set.jpg" 
-              alt="Bridal" 
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-            />
-            <div className="absolute bottom-8 left-0 right-0 text-center z-20">
-              <h3 className="text-2xl font-serif text-white mb-2">Bridal Sets</h3>
-              <span className="text-white text-xs uppercase tracking-widest border-b border-transparent group-hover:border-ldj-gold transition-colors">View Collection</span>
+          {/* Bridal Category - Using 'bridal-set.jpg' */}
+          <Link to="/bridal" className="group relative h-[400px] overflow-hidden cursor-pointer">
+            <div className="absolute inset-0 bg-gray-200">
+              <img
+                src="/react/images/bridal-set.jpg" // ✅ CHANGED to an existing file
+                alt="Bridal"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            {/* ... other code stays the same ... */}
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute bottom-8 left-0 right-0 text-center text-white">
+              <h3 className="text-2xl font-serif mb-2">Bridal Sets</h3>
+              <span className="text-xs uppercase tracking-widest border-b border-white pb-1">View Collection</span>
             </div>
           </Link>
 
