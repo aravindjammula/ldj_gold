@@ -28,7 +28,9 @@ const Footer = () => {
 
           {/* 2. Shop Links */}
           <div>
-            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">Collections</h3>
+            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">
+              Collections
+            </h3>
             <ul className="space-y-4 text-sm text-gray-400 font-light">
               <li><Link to="/collections?category=Gold" className="hover:text-white transition-colors">Gold Jewellery</Link></li>
               <li><Link to="/collections?category=Diamond" className="hover:text-white transition-colors">Diamond Solitaires</Link></li>
@@ -40,7 +42,9 @@ const Footer = () => {
 
           {/* 3. Customer Care */}
           <div>
-            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">Customer Care</h3>
+            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">
+              Customer Care
+            </h3>
             <ul className="space-y-4 text-sm text-gray-400 font-light">
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link to="/custom-design" className="hover:text-white transition-colors">Bespoke Services</Link></li>
@@ -52,7 +56,9 @@ const Footer = () => {
 
           {/* 4. Newsletter */}
           <div>
-            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">The Newsletter</h3>
+            <h3 className="text-ldj-gold font-bold uppercase tracking-widest text-xs mb-6">
+              The Newsletter
+            </h3>
             <p className="text-gray-400 text-sm mb-4 font-light">
               Be the first to know about new collections and exclusive events.
             </p>

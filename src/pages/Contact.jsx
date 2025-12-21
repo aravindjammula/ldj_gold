@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Phone, Mail, Send, CheckCircle, Loader2 } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Send, Loader2, CheckCircle, Phone, Mail, MapPin, Clock, Users, Sparkles, MessageSquare } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -7,162 +7,322 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-    //emailjs.sendForm('service_z85t38l', 'template_mtjzflv', form.current, 'tgaZsZxwj0Rrwa-M1')
-
-
-const sendEmail = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
 
-    // DEBUG: Check if keys are set (Don't show this to others!)
-    const serviceId = 'service_z85t38l';   // 👈 Did you replace this? e.g. 'service_x9s8d7'
-    const templateId = 'template_mtjzflv'; // 👈 Did you replace this? e.g. 'template_a1b2c3'
-    const publicKey = 'tgaZsZxwj0Rrwa-M1';   // 👈 Did you replace this? e.g. 'user_9s8d7f6'
-
-    console.log("Attempting to send with:", { serviceId, templateId, publicKey });
+    const serviceId = 'service_z85t38l'; 
+    const templateId = 'template_mtjzflv'; 
+    const publicKey = 'tgaZsZxwj0Rrwa-M1';
 
     emailjs.sendForm(serviceId, templateId, form.current, publicKey)
-      .then((result) => {
-          console.log("SUCCESS!", result.text);
-          setIsSent(true);
-          setIsSending(false);
-          e.target.reset();
-          alert("Email Sent Successfully!"); // Added Alert for visibility
+      .then(() => {
+        setIsSent(true);
+        setIsSending(false);
+        e.target.reset();
+        setTimeout(() => setIsSent(false), 5000);
       }, (error) => {
-          console.error("FAILED...", error); // This prints the red error
-          setIsSending(false);
-          // SHOW THE EXACT ERROR TO THE USER
-          alert(`Failed to send: ${error.text || "Check console for details"}`); 
+        setIsSending(false);
+        alert(`Failed to send: ${error.text}`);
       });
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-gradient-to-b from-white to-amber-50 min-h-screen pt-24 pb-20 px-4 sm:px-6">
       
-      {/* 1. SPLIT LAYOUT */}
-      <div className="flex flex-col lg:flex-row">
-        
-        {/* LEFT: Visual Side */}
-        <div className="hidden lg:block lg:w-1/2 relative bg-gray-900 min-h-[800px]">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-70"
-            style={{ backgroundImage: "url('/images/Opulent Bridal Set.jpg')" }} 
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+      {/* Hero Header */}
+      <div className="max-w-6xl mx-auto mb-16 text-center">
+        <div className="inline-flex items-center gap-3 text-ldj-gold mb-6">
+          <div className="w-8 h-px bg-ldj-gold"></div>
+          <Sparkles size={18} />
+          <span className="uppercase tracking-widest text-sm font-bold">Connect With Us</span>
+          <Sparkles size={18} />
+          <div className="w-8 h-px bg-ldj-gold"></div>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-serif text-ldj-dark mb-6">
+          Let's Create Something <span className="text-ldj-gold">Together</span>
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          Your vision is our inspiration. Reach out for personalized consultations, showroom visits, or any inquiries.
+        </p>
+      </div>
+
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Contact Cards */}
+          <ContactCard 
+            icon={<Phone className="text-ldj-gold" size={24} />}
+            title="Call Us"
+            description="Speak directly with our jewelry consultants"
+            detail="+91 98765 43210"
+            actionLabel="Call Now"
+            actionType="tel"
+          />
           
-          <div className="absolute bottom-20 left-12 right-12 text-white animate-fade-in-up">
-            <h2 className="text-4xl font-serif mb-6">Visit Our Showroom</h2>
-            <p className="text-gray-300 font-light text-lg leading-relaxed max-w-md">
-              Experience our collections in person. Our master jewelers are available for private consultations.
-            </p>
-          </div>
+          <ContactCard 
+            icon={<Mail className="text-ldj-gold" size={24} />}
+            title="Email Us"
+            description="Get a response within 24 hours"
+            detail="support@ldjgold.com"
+            actionLabel="Send Email"
+            actionType="mailto"
+          />
+          
+          <ContactCard 
+            icon={<Clock className="text-ldj-gold" size={24} />}
+            title="Business Hours"
+            description="Showroom visits by appointment"
+            detail="Mon-Sat: 10AM - 7PM"
+            actionLabel="Book Appointment"
+            actionType="link"
+          />
         </div>
 
-        {/* RIGHT: Content Side */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 bg-white">
-          <div className="w-full max-w-lg">
-            
-            <span className="text-ldj-gold uppercase tracking-[0.2em] text-xs font-bold mb-2 block">Get in Touch</span>
-            <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-8">Contact Us</h1>
-
-            {/* Contact Details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-ldj-gold mb-2">
-                  <Phone size={18} />
-                  <span className="text-xs uppercase tracking-wider font-bold text-gray-400">Phone</span>
-                </div>
-                <p className="text-gray-900 font-serif">+91 98765 43210</p>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <MessageSquare className="text-ldj-gold" size={24} />
+                <h2 className="text-2xl font-serif text-ldj-dark">Send Your Message</h2>
               </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-ldj-gold mb-2">
-                  <Mail size={18} />
-                  <span className="text-xs uppercase tracking-wider font-bold text-gray-400">Email</span>
+              <p className="text-gray-600">Fill out the form below and we'll get back to you promptly.</p>
+            </div>
+
+            {isSent ? (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle size={40} className="text-green-600" />
                 </div>
-                <p className="text-gray-900 font-serif">support@ldjgold.com</p>
+                <h3 className="text-2xl font-serif text-gray-800 mb-3">Message Sent!</h3>
+                <p className="text-gray-600 mb-8">
+                  Thank you for contacting us. Our team will respond to you within 24 hours.
+                </p>
+                <button
+                  onClick={() => setIsSent(false)}
+                  className="text-ldj-gold font-semibold hover:underline"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                <input type="hidden" name="from_page" value="General Inquiry" />
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      required 
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ldj-gold focus:border-transparent outline-none transition-all"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                    <input 
+                      type="email" 
+                      name="email" 
+                      required 
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ldj-gold focus:border-transparent outline-none transition-all"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                  <input 
+                    type="tel" 
+                    name="phone" 
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ldj-gold focus:border-transparent outline-none transition-all"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                  <input 
+                    type="text" 
+                    name="subject" 
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ldj-gold focus:border-transparent outline-none transition-all"
+                    placeholder="What is this regarding?"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Your Message *</label>
+                  <textarea 
+                    name="message" 
+                    required 
+                    rows="5"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ldj-gold focus:border-transparent outline-none resize-none transition-all"
+                    placeholder="Tell us how we can help you..."
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  disabled={isSending}
+                  className="w-full bg-gradient-to-r from-ldj-dark to-gray-900 text-white py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-8"
+                >
+                  {isSending ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Location & Details */}
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-ldj-dark to-gray-900 text-white rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <MapPin className="text-ldj-gold" size={24} />
+                <h3 className="text-2xl font-serif">Our Showroom</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <p className="text-ldj-gold text-sm font-semibold mb-1">Address</p>
+                  <p className="text-gray-200">Main Heritage Square, Mumbai, India - 400001</p>
+                </div>
+                
+                <div>
+                  <p className="text-ldj-gold text-sm font-semibold mb-1">Showroom Hours</p>
+                  <div className="space-y-1 text-gray-300">
+                    <p>Monday - Saturday: 10:00 AM - 7:00 PM</p>
+                    <p>Sunday: By Appointment Only</p>
+                  </div>
+                </div>
+                
+                <div className="pt-6 border-t border-gray-800">
+                  <p className="text-ldj-gold text-sm font-semibold mb-2">Before You Visit</p>
+                  <p className="text-gray-300 text-sm">
+                    We recommend scheduling an appointment to ensure personalized attention from our master jewelers.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* FUNCTIONAL FORM */}
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            {/* Why Choose Us */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-6">
+                <Users className="text-ldj-gold" size={24} />
+                <h3 className="text-xl font-serif text-ldj-dark">Why Contact LDJ?</h3>
+              </div>
               
-              {/* HIDDEN INPUT FOR TITLE */}
-              {/* Your dashboard Subject says: Contact Us: {{title}} */}
-              {/* We add a hidden field so the subject line isn't empty */}
-              <input type="hidden" name="title" value="New Website Inquiry" />
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-ldj-gold rounded-full mt-2"></div>
+                  <span className="text-gray-600">Personalized jewelry consultations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-ldj-gold rounded-full mt-2"></div>
+                  <span className="text-gray-600">Virtual try-on and design previews</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-ldj-gold rounded-full mt-2"></div>
+                  <span className="text-gray-600">Expert advice on gemstone selection</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-ldj-gold rounded-full mt-2"></div>
+                  <span className="text-gray-600">Lifetime maintenance guidance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-              <div className="space-y-1">
-                <label className="text-xs uppercase tracking-wider font-bold text-gray-500">Full Name</label>
-                <input 
-                  type="text" 
-                  name="name" // FIXED: Matches {{name}} in your screenshot
-                  required
-                  className="w-full border-b border-gray-300 py-2 focus:border-ldj-gold focus:outline-none transition-colors bg-transparent placeholder-gray-300 font-serif"
-                  placeholder="Enter your name"
-                />
+        {/* Map Section */}
+        <div className="mt-16 bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="p-8">
+            <h3 className="text-2xl font-serif text-ldj-dark mb-6">Find Us Here</h3>
+            <div className="bg-gray-100 h-64 md:h-80 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <MapPin className="text-ldj-gold mx-auto mb-4" size={40} />
+                <p className="text-gray-600">Map location would appear here</p>
+                <p className="text-sm text-gray-500 mt-2">Main Heritage Square, Mumbai</p>
               </div>
-
-              <div className="space-y-1">
-                <label className="text-xs uppercase tracking-wider font-bold text-gray-500">Email Address</label>
-                <input 
-                  type="email" 
-                  name="email" // FIXED: Matches {{email}} in your screenshot
-                  required
-                  className="w-full border-b border-gray-300 py-2 focus:border-ldj-gold focus:outline-none transition-colors bg-transparent placeholder-gray-300 font-serif"
-                  placeholder="name@example.com"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <label className="text-xs uppercase tracking-wider font-bold text-gray-500">Message</label>
-                <textarea 
-                  name="message" // Matches {{message}} in your screenshot
-                  required
-                  rows="3"
-                  className="w-full border-b border-gray-300 py-2 focus:border-ldj-gold focus:outline-none transition-colors bg-transparent placeholder-gray-300 resize-none font-serif"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
-              <button 
-                type="submit" 
-                disabled={isSending}
-                className={`group w-full py-4 mt-4 uppercase tracking-[0.2em] text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${isSent ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-ldj-dark text-white hover:bg-ldj-gold'}`}
+            </div>
+            <div className="mt-6 text-center">
+              <a 
+                href="https://maps.google.com/?q=Main+Heritage+Square,Mumbai,India" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-ldj-gold font-semibold hover:underline"
               >
-                {isSending ? (
-                  <>Sending... <Loader2 size={14} className="animate-spin" /></>
-                ) : isSent ? (
-                  <>Message Sent <CheckCircle size={14} /></>
-                ) : (
-                  <>Send Message <Send size={14} className="group-hover:translate-x-1 transition-transform" /></>
-                )}
-              </button>
-            </form>
-
+                <MapPin size={16} />
+                Open in Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* 2. MAP SECTION */}
-      <div className="w-full h-96 relative bg-gray-100 border-t border-gray-200">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.358782410386!2d80.43654021486884!3d16.30665248873534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb1787785%3A0x9f7999dd90f1e694!2sGuntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1623145678901!5m2!1sen!2sin" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0, filter: 'grayscale(100%) contrast(1.2) opacity(0.8)' }} 
-          allowFullScreen="" 
-          loading="lazy"
-          title="LDJ Gold Location"
-        ></iframe>
-      </div>
-
     </div>
   );
 };
+
+// Contact Card Component
+const ContactCard = ({ icon, title, description, detail, actionLabel, actionType }) => {
+  const getActionProps = () => {
+    switch(actionType) {
+      case 'tel':
+        return { href: `tel:${detail}` };
+      case 'mailto':
+        return { href: `mailto:${detail}` };
+      case 'link':
+        return { href: '/contact' }; // Link to same page or appointment booking
+      default:
+        return { href: '#' };
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-12 h-12 bg-ldj-gold/10 rounded-full flex items-center justify-center">
+          {icon}
+        </div>
+        <div>
+          <h3 className="font-serif text-lg text-ldj-dark">{title}</h3>
+          <p className="text-gray-500 text-sm">{description}</p>
+        </div>
+      </div>
+      <p className="text-gray-800 font-medium mb-6">{detail}</p>
+      <a 
+        {...getActionProps()}
+        className="inline-flex items-center gap-2 text-ldj-gold font-semibold hover:text-ldj-dark transition-colors"
+      >
+        {actionLabel}
+        <ArrowRight size={16} />
+      </a>
+    </div>
+  );
+};
+
+const ArrowRight = ({ size }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2"
+  >
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+);
 
 export default Contact;

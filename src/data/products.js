@@ -7,7 +7,7 @@ const products = [
     name: "Regal Blossom Choker",
     price: "₹4,38,750",
     category: "Gold",
-    image: "/react/images/gold-choker.jpg", // ✅ Fixed: lowercase, no spaces, added /react
+    image: "/images/gold-choker.jpg", // ✅ Fixed: lowercase, no spaces, added /react
     badge: "Bestseller",
     description: "22K gold choker featuring intricate floral motifs and antique finish. Weight: 32.5g",
     isNew: false
@@ -17,7 +17,7 @@ const products = [
     name: "Heritage Gold Bajuband",
     price: "₹3,37,500",
     category: "Gold",
-    image: "/react/images/gold-bajuband.jpg", 
+    image: "/images/gold-bajuband.jpg", 
     badge: "Traditional",
     description: "Handcrafted armlet with temple jewelry artistry. Weight: 25g",
     isNew: true
@@ -27,7 +27,7 @@ const products = [
     name: "Lord Krishna Motif Pendant",
     price: "₹1,62,000",
     category: "Gold",
-    image: "/react/images/krishna-pendant.jpg", 
+    image: "/images/krishna-pendant.jpg", 
     badge: "Divine",
     description: "Exquisite pendant capturing the divine grace of Lord Krishna. Weight: 12g",
     isNew: true
@@ -37,7 +37,7 @@ const products = [
     name: "Lord Ganesh Pendant",
     price: "₹1,08,000",
     category: "Gold",
-    image: "/react/images/ganesh-pendant.jpg",
+    image: "/images/ganesh-pendant.jpg",
     badge: "Blessings",
     description: "A symbol of new beginnings crafted in pure 22K gold. Weight: 8g",
     isNew: false
@@ -49,7 +49,7 @@ const products = [
     name: "Diamond Solitaire Ring",
     price: "₹1,85,000",
     category: "Diamond",
-    image: "/react/images/diamond-ring.jpg", 
+    image: "/images/diamond-ring.jpg", 
     badge: "IGI Certified",
     description: "Classic 0.75ct solitaire setting in 18K white gold. VVS1 Clarity.",
     isNew: true
@@ -59,7 +59,7 @@ const products = [
     name: "Riviera Tennis Necklace",
     price: "₹5,50,000",
     category: "Diamond",
-    image: "/react/images/diamond-necklace.jpg", 
+    image: "/images/diamond-necklace.jpg", 
     badge: "Premium",
     description: "A cascading line of brilliant-cut diamonds (5.2ct total weight) for ultimate luxury.",
     isNew: true
@@ -71,7 +71,7 @@ const products = [
     name: "Halo Engagement Ring",
     price: "₹2,25,000",
     category: "Engagement",
-    image: "/react/images/halo-ring.jpg", 
+    image: "/images/halo-ring.jpg", 
     badge: "Forever",
     description: "A stunning central diamond surrounded by a halo of brilliance.",
     isNew: true
@@ -83,7 +83,7 @@ const products = [
     name: "Antique Temple Earrings",
     price: "₹2,95,000",
     category: "Vintage",
-    image: "/react/images/temple-earrings.jpg", 
+    image: "/images/temple-earrings.jpg", 
     badge: "Handmade",
     description: "Traditional Jhumkas with intricate Nakshi work and ruby embellishments. Weight: 22g",
     isNew: true
@@ -93,7 +93,7 @@ const products = [
     name: "Vintage Art Brooch",
     price: "₹1,48,500",
     category: "Vintage",
-    image: "/react/images/vintage-brooch.jpg", 
+    image: "/images/vintage-brooch.jpg", 
     badge: "Classic",
     description: "A timeless accessory to elevate any traditional attire. Weight: 11g",
     isNew: false
@@ -103,7 +103,7 @@ const products = [
     name: "Antique Natural Pearl Set",
     price: "₹4,50,000",
     category: "Vintage",
-    image: "/react/images/pearl-set.jpg", 
+    image: "/images/pearl-set.jpg", 
     badge: "Rare",
     description: "Certified natural Basra pearls set in antique gold.",
     isNew: true
@@ -115,7 +115,7 @@ const products = [
     name: "Opulent Bridal Set",
     price: "₹16,50,000",
     category: "Bridal",
-    image: "/react/images/bridal-set.jpg", 
+    image: "/images/bridal-set.jpg", 
     badge: "Exclusive",
     description: "Complete heavy bridal set including necklace, earrings, and maang tikka. Weight: 120g",
     isNew: true
@@ -127,7 +127,7 @@ const products = [
     name: "Natural Pearl Drop Earrings",
     price: "₹85,000",
     category: "Vintage",
-    image: "/react/images/pearl-earrings.jpg", 
+    image: "/images/pearl-earrings.jpg", 
     badge: "Elegant",
     description: "Simple yet sophisticated natural pearl drops in 18K Gold.",
     isNew: false
