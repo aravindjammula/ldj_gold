@@ -17,6 +17,9 @@ import ProductDetails from './pages/ProductDetails';
 import AuthPage from './pages/AuthPage';
 import TrackOrder from './pages/TrackOrder';
 import SavedItems from './pages/SavedItems';
+import Appointment from './pages/Appointment';
+import VirtualConsultation from './pages/VirtualConsultation';
+
 
 function App() {
   return (
@@ -48,12 +51,13 @@ function App() {
             <Route path="/vintage" element={<Vintage />} />
 
             {/* Account Routes (Linked to your Navbar User Dropdown) */}
-            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/login" element={<AuthPage />} />
             <Route path="/track-order" element={<TrackOrder />} />
-            <Route path="/saved-items" element={<SavedItems />} />
-
+            <Route path="/saveditems" element={<SavedItems />} />
             {/* Dynamic Route */}
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/appointment" element={<Appointment />} />
+            <Route path="/virtual-consultation" element={<VirtualConsultation />} />
           </Routes>
         </div>
 

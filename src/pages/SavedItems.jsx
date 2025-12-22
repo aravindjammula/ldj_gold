@@ -1,10 +1,36 @@
 import React from 'react';
 
 const SavedItems = () => {
-  // Example of saved items using your verified public/images folder
+  // 4 Products with perfect image paths and descriptive metadata
   const wishlist = [
-    { id: 1, name: "Regal Blossom Choker", price: "₹4,38,750", img: "/images/gold-choker.jpg" },
-    { id: 5, name: "Diamond Solitaire Ring", price: "₹1,85,000", img: "/images/diamond-ring.jpg" }
+    { 
+      id: 1, 
+      name: "Regal Blossom Choker", 
+      price: "₹4,38,750", 
+      img: "/images/gold-choker.jpg", 
+      alt: "Traditional 22k Gold Regal Blossom Choker Necklace - LDJ Gold Mangalagiri" 
+    },
+    { 
+      id: 2, 
+      name: "Heritage Bridal Haram", 
+      price: "₹8,50,000", 
+      img: "/images/bridal-set.jpg", 
+      alt: "Antique Gold Heritage Bridal Haram with Ruby Studs - LDJ Gold Collection" 
+    },
+    { 
+      id: 3, 
+      name: "Diamond Solitaire Ring", 
+      price: "₹1,85,000", 
+      img: "/images/diamond-ring.jpg", 
+      alt: "Certified 1 Carat Diamond Solitaire Engagement Ring in 18k White Gold" 
+    },
+    { 
+      id: 4, 
+      name: "Temple Goddess Necklace", 
+      price: "₹5,12,000", 
+      img: "/images/temple-earrings.jpg", 
+      alt: "South Indian Temple Jewelry Gold Goddess Lakshmi Pendant Necklace" 
+    }
   ];
 
   return (
@@ -18,12 +44,21 @@ const SavedItems = () => {
           <span className="text-ldj-gold font-bold text-sm tracking-widest uppercase">{wishlist.length} Items</span>
         </div>
 
+        {/* Responsive Grid System: 1 column on mobile, 3 on tablet, 4 on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
           {wishlist.map(item => (
             <div key={item.id} className="group cursor-pointer">
-              <div className="aspect-[3/4] overflow-hidden bg-gray-50 mb-6 relative">
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <button className="absolute bottom-0 left-0 w-full bg-black/80 text-white py-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="aspect-[3/4] overflow-hidden bg-gray-50 mb-6 relative border border-gray-100 shadow-sm">
+                <img 
+                   src={item.img} 
+                   alt={item.alt} /* Contextual Alt Text for Google Image SEO */
+                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                   loading="lazy" /* Performance optimization for faster page load */
+                />
+                <button 
+                  aria-label={`Add ${item.name} to shopping bag`} /* Accessibility for Screen Readers */
+                  className="absolute bottom-0 left-0 w-full bg-black/90 text-white py-4 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity"
+                >
                   Add to Bag
                 </button>
               </div>

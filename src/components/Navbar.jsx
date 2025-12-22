@@ -43,11 +43,8 @@ const Navbar = () => {
           <div className="flex items-center space-x-6 text-gray-900">
             
             <Search className="w-5 h-5 cursor-pointer hover:text-ldj-gold transition-colors transform hover:scale-110 duration-200" />
-            
-            {/* USER DROPDOWN (Updated: No Click Event) */}
             <div className="relative group hidden sm:block z-50">
               
-              {/* Changed from <Link> to <div> so clicking does nothing */}
               <div className="py-2 cursor-pointer">
                 <User className="w-5 h-5 hover:text-ldj-gold transition-colors transform hover:scale-110 duration-200" />
               </div>
@@ -62,10 +59,10 @@ const Navbar = () => {
                     <Link to="/login" className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-ldj-gold transition-colors">
                       Login / Sign Up
                     </Link>
-                    <Link to="/orders" className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-ldj-gold transition-colors">
+                    <Link to="/track-order" className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-ldj-gold transition-colors">
                       Track Order
                     </Link>
-                    <Link to="/wishlist" className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-ldj-gold transition-colors">
+                    <Link to="/saveditems" className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-ldj-gold transition-colors">
                       Saved Items
                     </Link>
                   </div>
@@ -102,9 +99,6 @@ const Navbar = () => {
     </nav>
   );
 };
-
-// --- Helper Components ---
-
 const NavLink = ({ to, label, isActive }) => (
   <Link 
     to={to} 

@@ -18,36 +18,37 @@ const Home = () => {
   ];
 
   const collections = [
-    { 
-      image: "/images/gold-choker.jpg", 
-      title: "22K Gold Collections", 
+    {
+      image: "/images/gold-choker.jpg",
+      title: "22K Gold Collections",
+      altText: "Handcrafted 22K Gold Choker Necklace - LDJ Gold Mangalagiri",
       description: "Traditional & Contemporary Designs",
       priceRange: "From ₹45,000",
       category: "Gold",
       link: "/collections?category=Gold",
       badge: "MOST POPULAR"
     },
-    { 
-      image: "/images/diamond-ring.jpg", 
-      title: "Diamond Solitaires", 
+    {
+      image: "/images/diamond-ring.jpg",
+      title: "Diamond Solitaires",
       description: "0.5ct to 5.0ct Certified Diamonds",
       priceRange: "From ₹1,25,000",
       category: "Diamond",
       link: "/collections?category=Diamond",
       badge: "CERTIFIED"
     },
-    { 
-      image: "/images/bridal-set.jpg", 
-      title: "Bridal Sets", 
+    {
+      image: "/images/bridal-set.jpg",
+      title: "Bridal Sets",
       description: "Complete Wedding Jewelry Collections",
       priceRange: "From ₹2,50,000",
       category: "Bridal",
       link: "/bridal",
       badge: "PREMIUM"
     },
-    { 
-      image: "/images/temple-jewelry.jpg", 
-      title: "Temple Jewelry", 
+    {
+      image: "/images/temple-jewelry.jpg",
+      title: "Temple Jewelry",
       description: "South Indian Traditional Gold",
       priceRange: "From ₹75,000",
       category: "Temple",
@@ -88,37 +89,37 @@ const Home = () => {
             <span>ESTABLISHED 1995</span>
             <Gem size={14} />
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-light mb-6 leading-tight text-white">
             <span className="block text-ldj-gold italic">Legacy</span>
             <span className="block">in Gold &</span>
             <span className="block">Perfection in</span>
             <span className="block text-ldj-gold italic">Diamonds</span>
           </h1>
-          
+
           <p className="text-gray-300 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-            India's most trusted family jewellers. Creating heirlooms since 1995 with 
+            India's most trusted family jewellers. Creating heirlooms since 1995 with
             uncompromising purity, certified quality, and timeless designs.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
-              to="/collections" 
+            <Link
+              to="/collections"
               className="group relative bg-ldj-gold text-black px-10 py-5 uppercase tracking-widest text-sm font-bold hover:bg-white transition-all duration-500 overflow-hidden rounded-sm"
             >
               <span className="relative z-10">EXPLORE COLLECTIONS</span>
               <div className="absolute inset-0 bg-gradient-to-r from-amber-200 to-yellow-300 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Link>
-            
-            <Link 
-              to="/appointment" 
+
+            <Link
+              to="/appointment"
               className="group relative border-2 border-white text-white px-10 py-5 uppercase tracking-widest text-sm font-bold hover:border-ldj-gold transition-all duration-500 overflow-hidden"
             >
               <span className="relative z-10">BOOK PRIVATE VIEWING</span>
               <div className="absolute inset-0 bg-white/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Link>
           </div>
-          
+
           {/* Trust Badges */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 text-white/60 text-sm">
             <div className="flex items-center gap-2">
@@ -135,7 +136,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-px h-12 bg-gradient-to-b from-ldj-gold to-transparent"></div>
@@ -175,16 +176,17 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {collections.map((collection, index) => (
-              <Link 
+              <Link
                 key={index}
                 to={collection.link}
+                aria-label={`View our ${collection.title}`}
                 className="group relative overflow-hidden rounded-sm bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Collection Image */}
                 <div className="relative aspect-square overflow-hidden">
                   <img
                     src={collection.image}
-                    alt={collection.title}
+                    alt={collection.altText || collection.title} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                     onError={(e) => {
@@ -192,7 +194,7 @@ const Home = () => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+
                   {/* Badge */}
                   {collection.badge && (
                     <div className="absolute top-4 left-4">
@@ -202,7 +204,7 @@ const Home = () => {
                     </div>
                   )}
                 </div>
-                
+
                 {/* Collection Info */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
@@ -214,7 +216,7 @@ const Home = () => {
                       {collection.category}
                     </span>
                   </div>
-                  
+
                   <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <span className="text-lg font-bold text-gray-900">{collection.priceRange}</span>
                     <span className="text-xs uppercase tracking-widest text-gray-500 group-hover:text-ldj-gold transition-colors">
@@ -228,8 +230,8 @@ const Home = () => {
 
           {/* View All Collections Link */}
           <div className="text-center mt-12">
-            <Link 
-              to="/collections" 
+            <Link
+              to="/collections"
               className="inline-flex items-center gap-2 text-gray-700 hover:text-ldj-gold transition-colors duration-300 group"
             >
               <span className="text-sm font-bold uppercase tracking-widest">VIEW ALL COLLECTIONS</span>
@@ -258,19 +260,19 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {valuePropositions.map((prop, index) => (
-              <div 
+              <div
                 key={index}
                 className="relative p-8 bg-white rounded-sm border border-gray-100 hover:border-ldj-gold/30 hover:shadow-2xl transition-all duration-500 group"
               >
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-ldj-gold to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                
+
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 bg-ldj-gold/10 rounded-full flex items-center justify-center group-hover:bg-ldj-gold/20 transition-colors duration-300">
                       <prop.icon className="w-7 h-7 text-ldj-gold" />
                     </div>
                   </div>
-                  
+
                   <div>
                     <h3 className="font-serif text-xl text-gray-900 mb-3">{prop.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{prop.description}</p>
@@ -298,9 +300,9 @@ const Home = () => {
                 Discover the pieces our clients are choosing for their most special moments
               </p>
             </div>
-            
-            <Link 
-              to="/collections" 
+
+            <Link
+              to="/collections"
               className="mt-6 lg:mt-0 group flex items-center gap-2 text-gray-900 hover:text-ldj-gold transition-colors duration-300"
             >
               <span className="text-sm font-bold uppercase tracking-widest">VIEW ALL PIECES</span>
@@ -310,8 +312,8 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trendingProducts.map((product) => (
-              <ProductCard 
-                key={product.id} 
+              <ProductCard
+                key={product.id}
                 product={product}
                 showBadge={true}
                 badgeText="TRENDING"
@@ -338,26 +340,26 @@ const Home = () => {
             <span>EXCLUSIVE EXPERIENCE</span>
             <Crown size={16} />
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl font-serif text-white mb-8">
             Experience Luxury, Personally
           </h2>
-          
+
           <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            Schedule a private viewing in our showroom. Experience our collections in a 
+            Schedule a private viewing in our showroom. Experience our collections in a
             serene, one-on-one setting with expert guidance.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+            <Link
               to="/appointment"
               className="group relative bg-ldj-gold text-black px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-white transition-all duration-500 overflow-hidden rounded-sm"
             >
               <span className="relative z-10">BOOK PRIVATE VIEWING</span>
               <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Link>
-            
-            <Link 
+
+            <Link
               to="/virtual-consultation"
               className="group relative border-2 border-white/30 text-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:border-ldj-gold transition-all duration-500 overflow-hidden"
             >
@@ -365,7 +367,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-white/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
             </Link>
           </div>
-          
+
           <div className="mt-12 text-gray-400 text-sm">
             <p>By appointment only • Discreet location • Champagne service available</p>
           </div>
