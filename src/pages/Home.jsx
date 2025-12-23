@@ -19,7 +19,7 @@ const Home = () => {
 
   const collections = [
     {
-      image: "/images/gold-choker.jpg",
+      image: "/images/gold-choker.webp",
       title: "22K Gold Collections",
       altText: "Handcrafted 22K Gold Choker Necklace - LDJ Gold Mangalagiri",
       description: "Traditional & Contemporary Designs",
@@ -29,7 +29,7 @@ const Home = () => {
       badge: "MOST POPULAR"
     },
     {
-      image: "/images/diamond-ring.jpg",
+      image: "/images/diamond-ring.webp",
       title: "Diamond Solitaires",
       description: "0.5ct to 5.0ct Certified Diamonds",
       priceRange: "From ₹1,25,000",
@@ -38,7 +38,7 @@ const Home = () => {
       badge: "CERTIFIED"
     },
     {
-      image: "/images/bridal-set.jpg",
+      image: "/images/bridal-set.webp",
       title: "Bridal Sets",
       description: "Complete Wedding Jewelry Collections",
       priceRange: "From ₹2,50,000",
@@ -47,7 +47,7 @@ const Home = () => {
       badge: "PREMIUM"
     },
     {
-      image: "/images/temple-jewelry.jpg",
+      image: "/images/temple-earrings.webp",
       title: "Temple Jewelry",
       description: "South Indian Traditional Gold",
       priceRange: "From ₹75,000",
